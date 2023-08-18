@@ -1,6 +1,6 @@
 import express from 'express';
 import productsRouter from "../src/routes/products.Router.js"
-// import cartRouter from "../src/routes/carts.Router.js"
+import cartRouter from "../src/routes/carts.Router.js"
 const app = express ();
 
 const PORT = 8080
@@ -9,11 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //Rutas
 app.use("/api",productsRouter); 
-
-app.get('/', (req, res) => {
-    res.send('Por que no funcionas queridooooooooooo');
-  });
-// app.use("/api",cartRouter)
+app.use("/api",cartRouter)
 
 const server = app.listen(PORT, () =>{
     console.log(`Server HTTP is listening on PORT ${server.address().port}`);
